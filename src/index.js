@@ -4,10 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//redux연결
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+//reducer 연결을 위한 rootreducer
+import rootReducer from './modules';
+
+//가져온 reducer를 store로 연결
+const store = createStore(rootReducer)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
